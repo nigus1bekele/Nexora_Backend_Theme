@@ -1,0 +1,60 @@
+// Template Theme: customize this file for your theme.
+
+.o_list_view .o_list_renderer {
+    --ListRenderer-thead-bg-color: var(--my-theme-sidebar-bg, #F7F8FA);
+    --ListRenderer-thead-bg-active-color: var(--my-theme-sidebar-hover-bg, #EEF1F4);
+    --ListRenderer-thead-border-end-color: var(--my-theme-border, #DDE2E7);
+    background: var(--my-theme-surface, #FFFFFF);
+    border: 1px solid var(--my-theme-border, #DDE2E7);
+    border-radius: 18px;
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+    overflow: auto;
+}
+
+.o_list_view .o_list_renderer .o_list_table thead th {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--my-theme-text, #111315);
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+.o_list_view .o_list_renderer .o_list_table thead th .o_list_sortable_caret {
+    color: var(--my-theme-muted, #5B6068);
+}
+
+.o_list_view .o_list_renderer .o_list_table tbody td {
+    color: var(--my-theme-text, #111315);
+    font-size: 14px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+}
+
+.o_list_view .o_list_renderer .o_list_table .form-check-input {
+    border-radius: 999px;
+    border-color: var(--my-theme-border, #DDE2E7);
+}
+
+.o_list_view .o_list_renderer .o_list_table .form-check-input:checked {
+    background-color: var(--tt-form-primary, var(--my-theme-primary, #2393D2));
+    border-color: var(--tt-form-primary, var(--my-theme-primary, #2393D2));
+}
+
+.o_list_view .o_list_renderer .o_list_table tbody tr:hover {
+    background: color-mix(in srgb, var(--my-theme-primary, #2393D2) 8%, var(--my-theme-surface, #FFFFFF));
+}
+
+.o_list_view .o_list_renderer .o_list_table tbody tr.o_selected_row,
+.o_list_view .o_list_renderer .o_list_table tbody tr:focus-within {
+    background: var(--my-theme-sidebar-active-bg, #E1F3FC);
+}
+
+.o_list_view .o_list_renderer .o_list_table tbody tr.o_data_row {
+    border-bottom: 1px solid var(--my-theme-border, #DDE2E7);
+}
+
+.o_list_view .o_list_renderer .o_list_table tbody tr.o_data_row:last-child {
+    border-bottom: none;
+}

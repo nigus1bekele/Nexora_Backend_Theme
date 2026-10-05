@@ -1,0 +1,71 @@
+// Template Theme: customize this file for your theme.
+// Theme Colors (editable in settings)
+// These variables define the core color palette of your theme.
+// You can change these hex codes to match your brand identity.
+
+// Text color for the apps menu (the dropdown with all apps)
+$tt_color_appsmenu_text: #0F172A;
+
+// Text color for the app bar (the top navigation bar)
+$tt_color_appbar_text: #1F2937;
+
+// Color for the active/selected item in the app bar
+$tt_color_appbar_active: #4DA3E6;
+
+// Background color for the app bar
+$tt_color_appbar_background: #FFFFFF;
+
+// Primary brand color used for highlights, links, and primary buttons
+$tt_color_theme_primary: #1b56b6;
+
+// Main background color for the application interface
+$tt_color_theme_background: #F3F4F6;
+
+// Default text color for the theme
+$tt_color_theme_text: #111827;
+
+// Color for secondary or less important text
+$tt_color_theme_text_muted: #6B7280;
+
+// Text color when hovering over interactive elements
+$tt_color_theme_text_hover: #1F2937;
+
+// Background color for theme-styled buttons
+$tt_color_theme_button: #1E3A8A;
+
+// Text color for theme-styled buttons (ensure good contrast with $tt_color_theme_button)
+$tt_color_theme_button_text: #FFFFFF;
+
+// Convenience Aliases
+// These aliases make it easier to use the theme colors throughout other SCSS files.
+$color_theme_primary: $tt_color_theme_primary;
+$color_theme_background: $tt_color_theme_background;
+$color_theme_text: $tt_color_theme_text;
+$color_theme_text_muted: $tt_color_theme_text_muted;
+$color_theme_text_hover: $tt_color_theme_text_hover;
+$color_theme_button: $tt_color_theme_button;
+$color_theme_button_text: $tt_color_theme_button_text;
+
+// Template Overrides
+// Mapping theme variables to specific template components.
+$tt-appsmenu-color: $tt_color_appsmenu_text;
+$tt-appbar-color: $tt_color_appbar_text;
+$tt-appbar-active: $tt_color_appbar_active;
+$tt-appbar-background: $tt_color_appbar_background;
+
+// Theme CSS Variables
+// These variables are exposed to the browser, allowing them to be used in JS or inline styles.
+:root,
+.o_web_client {
+    --NavBar-entry-color--hover: #{$tt_color_theme_button_text};
+    --my-theme-primary: #{$tt_color_theme_primary};
+    --my-theme-bg: #{$tt_color_theme_background};
+    --my-theme-text: #{$tt_color_theme_text};
+    --my-theme-muted: #{$tt_color_theme_text_muted};
+    --my-theme-hover: #{$tt_color_theme_text_hover};
+    --my-theme-button: #{$tt_color_theme_button};
+    --my-theme-button-text: #{$tt_color_theme_button_text};
+    --my-theme-accent: #f6c026;
+    --my-theme-brand-start: #2f74bd;
+    --my-theme-brand-end: #4ba6e5;
+}

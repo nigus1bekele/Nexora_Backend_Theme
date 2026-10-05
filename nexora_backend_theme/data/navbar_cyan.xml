@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <function model="ir.config_parameter" name="set_param">
+        <value>nexora_backend_theme.color_topbar_background</value>
+        <value>#2393D2</value>
+    </function>
+    <function model="ir.config_parameter" name="set_param">
+        <value>nexora_backend_theme.color_topbar_text</value>
+        <value>#FFFFFF</value>
+    </function>
+</odoo>

@@ -1,0 +1,28 @@
+// Login, reset-password, and sign-up share the Nexora auth layout. The core
+// styling lives in login.scss; this file contains only reset-specific details.
+
+.oe_website_login_container {
+    .login-form-panel {
+        .form-brand--auth {
+            margin-bottom: 32px;
+        }
+
+        .alert {
+            border: 0;
+            border-radius: 10px;
+            font-size: 14px;
+        }
+
+        .oe_login_buttons .field-link {
+            color: var(--my-theme-primary, #2393D2);
+            font-size: 14px;
+            font-weight: 700;
+            text-decoration: none;
+
+            &:hover {
+                color: var(--my-theme-text, #111315);
+                text-decoration: underline;
+            }
+        }
+    }
+}

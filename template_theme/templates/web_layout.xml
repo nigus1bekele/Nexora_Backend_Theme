@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Template Theme: customize this file for your theme. -->
+<odoo>
+
+    <!-- Inherit the main Odoo layout to inject custom styles and fonts -->
+    <template id="layout" inherit_id="web.layout">
+        <!-- Set the favicon to the company's favicon -->
+	    <xpath expr="//link[@rel='shortcut icon']" position="before">
+	    	<t 
+		    	t-set="x_icon" 
+		    	t-value="x_icon or '/web/image/res.company/%s/favicon' % request.env.company.id"
+	    	/>
+	    </xpath>
+        <!-- Inject custom CSS variables and Google Fonts into the <head> -->
+        <xpath expr="//head" position="inside">
+            <!-- Fetch theme parameters from System Parameters (ir.config_parameter) -->
+            <t t-set="my_theme_params" t-value="request.env['ir.config_parameter'].sudo()"/>
+            <style>
+                :root,
+                .o_web_client {
+                    /* These CSS variables are used throughout the theme's SCSS files.
+                       They are dynamically populated from the Odoo configuration. */
+                    --my-theme-primary: <t t-esc="my_theme_params.get_param('template_theme.color_theme_primary', '#4DA3E6')"/>;
+                    --my-theme-bg: <t t-esc="my_theme_params.get_param('template_theme.color_theme_background', '#F3F4F6')"/>;
+                    --my-theme-text: <t t-esc="my_theme_params.get_param('template_theme.color_theme_text', '#111827')"/>;
+                    --my-theme-muted: <t t-esc="my_theme_params.get_param('template_theme.color_theme_text_muted', '#6B7280')"/>;
+                    --my-theme-hover: <t t-esc="my_theme_params.get_param('template_theme.color_theme_text_hover', '#1F2937')"/>;
+                    --my-theme-button: <t t-esc="my_theme_params.get_param('template_theme.color_theme_button', '#4DA3E6')"/>;
+                    --my-theme-button-text: <t t-esc="my_theme_params.get_param('template_theme.color_theme_button_text', '#FFFFFF')"/>;
+                    --my-theme-appsmenu-text: <t t-esc="my_theme_params.get_param('template_theme.color_appsmenu_text', '#0F172A')"/>;
+                    --my-theme-appbar-text: <t t-esc="my_theme_params.get_param('template_theme.color_appbar_text', '#1F2937')"/>;
+                    --my-theme-appbar-active: <t t-esc="my_theme_params.get_param('template_theme.color_appbar_active', '#4DA3E6')"/>;
+                    --my-theme-appbar-bg: <t t-esc="my_theme_params.get_param('template_theme.color_appbar_background', '#FFFFFF')"/>;
+                    --my-theme-accent: #f6c026;
+                    --my-theme-brand-start: #2f74bd;
+                    --my-theme-brand-end: #4ba6e5;
+                }
+            </style>
+            <!-- Load Google Fonts -->
+            <link rel="preconnect" href="https://fonts.googleapis.com"/>
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+            <link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+        </xpath>
+    </template>
+    
+</odoo>

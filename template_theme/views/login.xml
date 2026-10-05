@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="login" inherit_id="auth_signup.login" name="Custom Login Page">
+        <xpath expr="//t[@t-call='web.login_layout']" position="replace">
+            <t t-call="web.layout">
+                <t t-set="html_data" t-value="{'style': 'height: 100%;'}"/>
+                <t t-set="body_classname" t-value="'o_home_menu_background'"/>
+                
+                <t t-call-assets="web.assets_frontend" t-js="false"/>
+                <t t-call-assets="web.assets_frontend" t-css="false"/>
+                
+                <div class="oe_website_login_container">
+                    <div class="card flex-row">
+                        <!-- Left side info panel -->
+                        <div class="login-info-panel">
+                            <div class="info-dots dot-top"></div>
+                            <div class="info-dots dot-bottom"></div>
+                            
+                            <div class="login-logo-wrapper">
+                                <!-- Themes custom login logo from settings, with fallback to theme static logo -->
+                                <img t-if="request.env.company.login_logo" 
+                                     t-attf-src="/web/image?model=res.company&amp;field=login_logo&amp;id={{ request.env.company.id }}" 
+                                     alt="Logo"/>
+                                <img t-else="" src="/template_theme/static/src/img/logo.png" alt="Logo"/>
+                            </div>
+                            
+                            <h2>Enterprise Portal</h2>
+                            <p>Seamlessly manage your resources with clarity and precision.</p>
+                        </div>
+
+                        <!-- Right side form panel -->
+                        <div class="login-form-panel">
+                            <div class="welcome-text">
+                                <h1>Welcome back</h1>
+                                <p>Please enter your details to sign in.</p>
+                            </div>
+
+                            <form class="oe_login_form" role="form" t-attf-action="/web/login" method="post" onsubmit="this.querySelector('.btn-primary').disabled = true">
+                                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+
+                                <div class="form-group field-login">
+                                    <div class="field-label-wrapper">
+                                        <label for="login">Email Address</label>
+                                        <a href="#" class="field-link">Choose a user</a>
+                                    </div>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fa fa-envelope-o"></i></span>
+                                        <input type="text" name="login" t-att-value="login" id="login" class="form-control" t-att-readonly="'readonly' if only_passwords else None" t-att-autofocus="'autofocus' if not login else None" placeholder="Email Address" required="required"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group field-password">
+                                    <div class="field-label-wrapper">
+                                        <label for="password">Password</label>
+                                        <t t-if="request.params.get('db')">
+                                            <a t-attf-href="/web/database/selector" class="field-link">Reset Password?</a>
+                                        </t>
+                                        <t t-else="">
+                                            <a href="/web/reset_password" class="field-link">Reset Password?</a>
+                                        </t>
+                                    </div>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fa fa-lock"></i></span>
+                                        <input type="password" name="password" id="password" class="form-control" t-att-autofocus="'autofocus' if login else None" placeholder="Password" required="required" autocomplete="current-password" t-att-readonly="'readonly' if only_passwords else None"/>
+                                    </div>
+                                </div>
+
+                                <p class="alert alert-danger" t-if="error" role="alert">
+                                    <t t-esc="error"/>
+                                </p>
+                                <p class="alert alert-success" t-if="message" role="status">
+                                    <t t-esc="message"/>
+                                </p>
+
+                                <div t-attf-class="clearfix oe_login_buttons text-center gap-1 d-grid mb-1 {{'pt-2' if debug else ''}}">
+                                    <button type="submit" class="btn btn-primary login-btn">Log in <i class="fa fa-arrow-right"></i></button>
+                                    <t t-if="debug">
+                                        <button type="submit" name="redirect" value="/web/become" class="btn btn-link btn-sm">Log in as superuser</button>
+                                    </t>
+                                    <div class="o_login_auth"/>
+                                </div>
+
+                                <input type="hidden" name="redirect" t-att-value="redirect"/>
+                            </form>
+
+                            <div class="login-footer">
+                                <p class="contact-admin">Don't have an account? <a href="#">Contact Admin</a></p>
+                                
+                                <div class="bottom-links">
+                                    <a href="/web/database/manager" class="manage-databases">Manage Databases</a>
+                                    <span class="powered-by">Powered by <strong>Enterprise</strong></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </xpath>
+    </template>
+</odoo>

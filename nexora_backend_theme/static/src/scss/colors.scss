@@ -1,0 +1,130 @@
+// Template Theme: customize this file for your theme.
+// Theme Colors (editable in settings)
+// These variables define the core color palette of your theme.
+// You can change these hex codes to match your brand identity.
+
+// Text color for the apps menu (the dropdown with all apps)
+$tt_color_appsmenu_text: #111315;
+
+// Text color for the app bar (the top navigation bar)
+$tt_color_appbar_text: #171A1F;
+
+// Color for the active/selected item in the app bar
+$tt_color_appbar_active: #2393D2;
+
+// Background color for the app bar
+$tt_color_appbar_background: #F7F8FA;
+
+// Sidebar background color
+$tt_color_sidebar_background: #F7F8FA;
+
+// Sidebar text color
+$tt_color_sidebar_text: #171A1F;
+
+// Company name text color (brand)
+$tt_color_company_name_text: #171A1F;
+
+// Left header background color (brand strip)
+$tt_color_left_background: #FFFFFF;
+
+// Left header text color
+$tt_color_left_text: #171A1F;
+
+// Top bar background color (matches the painted theme chrome)
+$tt_color_topbar_background: #2393D2;
+
+// Top bar text / icon color
+$tt_color_topbar_text: #FFFFFF;
+
+// Sidebar active indicator (left line)
+$tt_color_sidebar_active_indicator: #2393D2;
+
+// Sidebar active background color
+$tt_color_sidebar_active_background: #E1F3FC;
+
+// Sidebar active text color
+$tt_color_sidebar_active_text: #155F87;
+
+// Sidebar hover background color
+$tt_color_sidebar_hover_background: #EEF1F4;
+
+// Badge background color
+$tt_color_badge_background: #2393D2;
+
+// Badge text color
+$tt_color_badge_text: #FFFFFF;
+
+// Primary brand color used for highlights, links, and primary buttons
+$tt_color_theme_primary: #2393D2;
+
+// Main background color for the application interface
+$tt_color_theme_background: #F1F2F4;
+
+// Default text color for the theme
+$tt_color_theme_text: #111315;
+
+// Color for secondary or less important text
+$tt_color_theme_text_muted: #5B6068;
+
+// Text color when hovering over interactive elements
+$tt_color_theme_text_hover: #111315;
+
+// Background color for theme-styled buttons
+$tt_color_theme_button: #2393D2;
+
+// Text color for theme-styled buttons (ensure good contrast with $tt_color_theme_button)
+$tt_color_theme_button_text: #FFFFFF;
+
+// Convenience Aliases
+// These aliases make it easier to use the theme colors throughout other SCSS files.
+$color_theme_primary: $tt_color_theme_primary;
+$color_theme_background: $tt_color_theme_background;
+$color_theme_text: $tt_color_theme_text;
+$color_theme_text_muted: $tt_color_theme_text_muted;
+$color_theme_text_hover: $tt_color_theme_text_hover;
+$color_theme_button: $tt_color_theme_button;
+$color_theme_button_text: $tt_color_theme_button_text;
+
+// Template Overrides
+// Mapping theme variables to specific template components.
+$tt-appsmenu-color: $tt_color_appsmenu_text;
+$tt-appbar-color: $tt_color_appbar_text;
+$tt-appbar-active: $tt_color_appbar_active;
+$tt-appbar-background: $tt_color_appbar_background;
+
+// Theme CSS Variables
+// These variables are exposed to the browser, allowing them to be used in JS or inline styles.
+:root,
+.o_web_client {
+    --NavBar-entry-color--hover: #{$tt_color_theme_button_text};
+    --my-theme-primary: #{$tt_color_theme_primary};
+    --my-theme-bg: #{$tt_color_theme_background};
+    --my-theme-text: #{$tt_color_theme_text};
+    --my-theme-muted: #{$tt_color_theme_text_muted};
+    --my-theme-hover: #{$tt_color_theme_text_hover};
+    --my-theme-button: #{$tt_color_theme_button};
+    --my-theme-button-text: #{$tt_color_theme_button_text};
+    --my-theme-sidebar-bg: #{$tt_color_sidebar_background};
+    --my-theme-sidebar-text: #{$tt_color_sidebar_text};
+    --my-theme-company-name-text: #{$tt_color_company_name_text};
+    --my-theme-left-bg-color: #{$tt_color_left_background};
+    --my-theme-left-text: #{$tt_color_left_text};
+    --my-theme-topbar-bg: #{$tt_color_topbar_background};
+    --my-theme-topbar-text: #{$tt_color_topbar_text};
+    --my-theme-surface: #FFFFFF;
+    --my-theme-border: #DDE2E7;
+    --my-theme-sidebar-active-indicator: #{$tt_color_sidebar_active_indicator};
+    --my-theme-sidebar-active-bg: #{$tt_color_sidebar_active_background};
+    --my-theme-sidebar-active-text: #{$tt_color_sidebar_active_text};
+    --my-theme-sidebar-hover-bg: #{$tt_color_sidebar_hover_background};
+    --my-theme-badge-bg: #{$tt_color_badge_background};
+    --my-theme-badge-text: #{$tt_color_badge_text};
+    --my-theme-ink-black: #111315;
+    --my-theme-ink-blue: #2393D2;
+    --my-theme-ink-magenta: #D91279;
+    --my-theme-ink-yellow: #F9C511;
+    --my-theme-ink-red: #E0201F;
+    --my-theme-accent: #F9C511;
+    --my-theme-brand-start: #111315;
+    --my-theme-brand-end: #2393D2;
+}

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Template Theme: customize this file for your theme. -->
+
+<templates xml:space="preserve">
+
+  <t t-name="template_theme.Home">
+    <div class="tt_home">
+      <section class="tt_home_hero">
+        <div class="tt_home_hero_overlay"></div>
+        <div class="tt_home_hero_content">
+          <span class="tt_home_kicker">Overview</span>
+          <h1 class="tt_home_title">
+            Home<br />
+            <span>Q1 Performance &amp; Analytics</span>
+          </h1>
+          <p class="tt_home_lead">
+            <t t-if="state.summary.hasSales">
+              Welcome back, <t t-esc="state.userName"/>. You have
+              <span class="tt_home_accent" t-esc="state.summary.activityCount"/>
+              activities scheduled and
+              <span class="tt_home_positive" t-esc="state.summary.salesCount"/>
+              sales orders in progress.
+            </t>
+            <t t-else="">
+              Welcome back, <t t-esc="state.userName"/>. You have
+              <span class="tt_home_accent" t-esc="state.summary.activityCount"/>
+              activities scheduled today.
+            </t>
+          </p>
+          <div class="tt_home_actions">
+            <button class="tt_btn tt_btn_primary" type="button">
+              <i class="fa fa-plus" aria-hidden="true"></i>
+              New Transaction
+            </button>
+            <button class="tt_btn tt_btn_ghost" type="button">
+              <i class="fa fa-file-text-o" aria-hidden="true"></i>
+              Generate Report
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="tt_home_stats">
+        <t t-if="state.metrics.length">
+          <t t-foreach="state.metrics" t-as="metric" t-key="metric.key">
+            <div class="tt_stat_card" t-att-class="metric.accentClass">
+              <div class="tt_stat_header">
+                <p t-esc="metric.label"/>
+                <span class="tt_stat_icon" t-att-class="metric.iconClassName">
+                  <i t-att-class="metric.iconClass" aria-hidden="true"></i>
+                </span>
+              </div>
+              <h3 t-esc="metric.value"/>
+              <p class="tt_stat_delta" t-if="metric.subtext" t-esc="metric.subtext"/>
+            </div>
+          </t>
+        </t>
+        <div class="tt_home_empty" t-else="">No metrics available yet.</div>
+      </section>
+
+      <section class="tt_home_section">
+        <div class="tt_section_header">
+          <div>
+            <h2>Quick Access</h2>
+            <p>Live snapshots from your most used modules</p>
+          </div>
+          <button class="tt_link_button" type="button">Customize Home</button>
+        </div>
+
+        <div class="tt_home_grid">
+          <div class="tt_focus_panel">
+            <div class="tt_panel_header">
+              <h3>My Focus</h3>
+              <span t-if="state.focusItems.length">Next 7 days</span>
+            </div>
+            <ul class="tt_focus_list" t-if="state.focusItems.length">
+              <li
+                class="tt_focus_item"
+                t-att-class="item.isOverdue ? 'is-overdue' : ''"
+                t-foreach="state.focusItems"
+                t-as="item"
+                t-key="item.id"
+              >
+                <div>
+                  <p class="tt_focus_title" t-esc="item.title"/>
+                  <p class="tt_focus_meta">
+                    <t t-esc="item.type"/>
+                    <t t-if="item.record"> - <t t-esc="item.record"/></t>
+                  </p>
+                </div>
+                <span class="tt_focus_date" t-esc="item.date"/>
+              </li>
+            </ul>
+            <p class="tt_panel_empty" t-else="">No activities assigned yet.</p>
+          </div>
+
+          <div class="tt_card_grid">
+            <t t-foreach="state.moduleCards" t-as="card" t-key="card.key">
+              <article class="tt_card">
+                <div class="tt_card_header" t-att-class="card.headerClass">
+                  <div class="tt_card_watermark">
+                    <i t-att-class="card.watermarkClass" aria-hidden="true"></i>
+                  </div>
+                  <div class="tt_card_header_inner">
+                    <i t-att-class="card.iconClass" aria-hidden="true"></i>
+                    <span t-esc="card.metric"/>
+                  </div>
+                </div>
+                <div class="tt_card_body">
+                  <h3 t-esc="card.title"/>
+                  <p t-esc="card.description"/>
+                  <div class="tt_card_footer">
+                    <span class="tt_badge" t-att-class="card.badgeClass" t-esc="card.badge"/>
+                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </article>
+            </t>
+          </div>
+        </div>
+      </section>
+
+      <footer class="tt_home_footer">
+        <p>&#169; 2025 ERP Nexus Inc. All rights reserved.</p>
+        <div>
+          <a href="#">Support</a>
+          <a href="#">Documentation</a>
+          <a href="#">Privacy Policy</a>
+        </div>
+      </footer>
+    </div>
+  </t>
+
+</templates>

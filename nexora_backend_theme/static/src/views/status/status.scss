@@ -1,0 +1,211 @@
+// Nexora workflow colors use refined inks for shared Odoo status meanings.
+.o_web_client {
+    --nexora-status-cyan: #2393D2;
+    --nexora-status-cyan-soft: #E1F3FC;
+    --nexora-status-cyan-text: #155F87;
+    --nexora-status-magenta: #D91279;
+    --nexora-status-magenta-soft: #FBE0EF;
+    --nexora-status-magenta-text: #9C0E56;
+    --nexora-status-yellow: #F9C511;
+    --nexora-status-yellow-soft: #FFF3C8;
+    --nexora-status-yellow-text: #7A5300;
+    --nexora-status-red: #E0201F;
+    --nexora-status-red-soft: #FDE3E2;
+    --nexora-status-red-text: #9E1B14;
+    --nexora-status-success: #198754;
+    --nexora-status-success-soft: #DDF5E6;
+    --nexora-status-success-text: #146C3B;
+    --nexora-status-neutral-soft: #EEF1F4;
+    --nexora-status-neutral-text: #5B6068;
+}
+
+// Selection fields rendered with Odoo's badge widget receive semantic classes
+// from badge_semantics.js, regardless of the application that owns the record.
+.o_web_client .o_field_badge .badge,
+.o_web_client .badge.nexora-status-cyan,
+.o_web_client .badge.nexora-status-magenta,
+.o_web_client .badge.nexora-status-yellow,
+.o_web_client .badge.nexora-status-red,
+.o_web_client .badge.nexora-status-success {
+    border: 1px solid transparent;
+    box-shadow: none;
+    font-weight: 700;
+}
+
+// Keep workflow labels equally legible in every app and every view type.
+// This is deliberately scoped to state/status UI rather than all ordinary
+// tags (e.g. contacts), which preserves the normal information hierarchy.
+.o_web_client .o_field_badge .badge,
+.o_web_client .o_list_view .badge,
+.o_web_client .o_kanban_record .badge,
+.o_web_client .o_field_statusbar .o_arrow_button,
+.o_web_client .o_form_statusbar .o_arrow_button {
+    font-weight: 700 !important;
+}
+
+.o_web_client .nexora-status-cyan {
+    background-color: var(--nexora-status-cyan-soft) !important;
+    color: var(--nexora-status-cyan-text) !important;
+}
+
+.o_web_client .nexora-status-magenta {
+    background-color: var(--nexora-status-magenta-soft) !important;
+    color: var(--nexora-status-magenta-text) !important;
+}
+
+.o_web_client .nexora-status-yellow {
+    background-color: var(--nexora-status-yellow-soft) !important;
+    color: var(--nexora-status-yellow-text) !important;
+}
+
+.o_web_client .nexora-status-red {
+    background-color: var(--nexora-status-red-soft) !important;
+    color: var(--nexora-status-red-text) !important;
+}
+
+.o_web_client .nexora-status-success {
+    background-color: var(--nexora-status-success-soft) !important;
+    color: var(--nexora-status-success-text) !important;
+}
+
+// Native Odoo decorations cover deadlines, activities and badges that do not
+// expose a workflow value. Keep their familiar semantic meaning in Nexora tones.
+.o_web_client .badge.text-bg-primary,
+.o_web_client .badge.text-bg-info {
+    background-color: var(--nexora-status-cyan-soft) !important;
+    color: var(--nexora-status-cyan-text) !important;
+}
+
+.o_web_client .badge.text-bg-warning {
+    background-color: var(--nexora-status-yellow-soft) !important;
+    color: var(--nexora-status-yellow-text) !important;
+}
+
+.o_web_client .badge.text-bg-danger {
+    background-color: var(--nexora-status-red-soft) !important;
+    color: var(--nexora-status-red-text) !important;
+}
+
+.o_web_client .badge.text-bg-success {
+    background-color: var(--nexora-status-success-soft) !important;
+    color: var(--nexora-status-success-text) !important;
+}
+
+.o_web_client .badge.text-bg-300 {
+    background-color: var(--nexora-status-neutral-soft) !important;
+    color: var(--nexora-status-neutral-text) !important;
+}
+
+.o_web_client .o_list_view .text-info {
+    color: var(--nexora-status-cyan-text) !important;
+}
+
+.o_web_client .o_list_view .text-warning {
+    color: var(--nexora-status-yellow-text) !important;
+}
+
+.o_web_client .o_list_view .text-danger {
+    color: var(--nexora-status-red-text) !important;
+}
+
+.o_web_client .o_list_view .text-success {
+    color: var(--nexora-status-success-text) !important;
+}
+
+// Statusbar buttons are keyed by the raw selection value. Current stages get
+// a stronger ink fill; all other stages retain a pale, readable ink tint.
+.o_field_statusbar .o_arrow_button[data-value="draft"],
+.o_field_statusbar .o_arrow_button[data-value="confirmed"],
+.o_field_statusbar .o_arrow_button[data-value="assigned"],
+.o_field_statusbar .o_arrow_button[data-value="progress"],
+.o_field_statusbar .o_arrow_button[data-value="open"],
+.o_field_statusbar .o_arrow_button[data-value="new"] {
+    background-color: var(--nexora-status-cyan-soft) !important;
+    color: var(--nexora-status-cyan-text) !important;
+}
+
+.o_field_statusbar .o_arrow_button[data-value="sent"],
+.o_field_statusbar .o_arrow_button[data-value="to approve"],
+.o_field_statusbar .o_arrow_button[data-value="to_approve"],
+.o_field_statusbar .o_arrow_button[data-value="pending"],
+.o_field_statusbar .o_arrow_button[data-value="review"],
+.o_field_statusbar .o_arrow_button[data-value="in_process"] {
+    background-color: var(--nexora-status-magenta-soft) !important;
+    color: var(--nexora-status-magenta-text) !important;
+}
+
+.o_field_statusbar .o_arrow_button[data-value="waiting"],
+.o_field_statusbar .o_arrow_button[data-value="to_close"],
+.o_field_statusbar .o_arrow_button[data-value="partially_available"],
+.o_field_statusbar .o_arrow_button[data-value="expected"] {
+    background-color: var(--nexora-status-yellow-soft) !important;
+    color: var(--nexora-status-yellow-text) !important;
+}
+
+.o_field_statusbar .o_arrow_button[data-value="cancel"],
+.o_field_statusbar .o_arrow_button[data-value="cancelled"],
+.o_field_statusbar .o_arrow_button[data-value="canceled"],
+.o_field_statusbar .o_arrow_button[data-value="rejected"],
+.o_field_statusbar .o_arrow_button[data-value="blocked"] {
+    background-color: var(--nexora-status-red-soft) !important;
+    color: var(--nexora-status-red-text) !important;
+}
+
+.o_field_statusbar .o_arrow_button[data-value="done"],
+.o_field_statusbar .o_arrow_button[data-value="purchase"],
+.o_field_statusbar .o_arrow_button[data-value="sale"],
+.o_field_statusbar .o_arrow_button[data-value="posted"],
+.o_field_statusbar .o_arrow_button[data-value="paid"],
+.o_field_statusbar .o_arrow_button[data-value="approved"],
+.o_field_statusbar .o_arrow_button[data-value="resolved"] {
+    background-color: var(--nexora-status-success-soft) !important;
+    color: var(--nexora-status-success-text) !important;
+}
+
+.o_field_statusbar .o_arrow_button.o_arrow_button_current[data-value="draft"],
+.o_field_statusbar .o_arrow_button.o_arrow_button_current[data-value="confirmed"],
+.o_field_statusbar .o_arrow_button.o_arrow_button_current[data-value="assigned"],
+.o_field_statusbar .o_arrow_button.o_arrow_button_current[data-value="progress"],
+.o_field_statusbar .o_arrow_button.o_arrow_button_current[data-value="open"],
+.o_field_statusbar .o_arrow_button.o_arrow_button_current[data-value="new"] {
+    background-color: var(--nexora-status-cyan) !important;
+    color: #FFFFFF !important;
+}
+
+.o_field_statusbar .o_arrow_button.o_arrow_button_current[data-value="sent"],
+.o_field_statusbar .o_arrow_button.o_arrow_button_current[data-value="to approve"],
+.o_field_statusbar .o_arrow_button.o_arrow_button_current[data-value="to_approve"],
+.o_field_statusbar .o_arrow_button.o_arrow_button_current[data-value="pending"],
+.o_field_statusbar .o_arrow_button.o_arrow_button_current[data-value="review"],
+.o_field_statusbar .o_arrow_button.o_arrow_button_current[data-value="in_process"] {
+    background-color: var(--nexora-status-magenta) !important;
+    color: #FFFFFF !important;
+}
+
+.o_field_statusbar .o_arrow_button.o_arrow_button_current[data-value="waiting"],
+.o_field_statusbar .o_arrow_button.o_arrow_button_current[data-value="to_close"],
+.o_field_statusbar .o_arrow_button.o_arrow_button_current[data-value="partially_available"],
+.o_field_statusbar .o_arrow_button.o_arrow_button_current[data-value="expected"] {
+    background-color: var(--nexora-status-yellow) !important;
+    color: #332300 !important;
+}
+
+.o_field_statusbar .o_arrow_button.o_arrow_button_current[data-value="cancel"],
+.o_field_statusbar .o_arrow_button.o_arrow_button_current[data-value="cancelled"],
+.o_field_statusbar .o_arrow_button.o_arrow_button_current[data-value="canceled"],
+.o_field_statusbar .o_arrow_button.o_arrow_button_current[data-value="rejected"],
+.o_field_statusbar .o_arrow_button.o_arrow_button_current[data-value="blocked"] {
+    background-color: var(--nexora-status-red) !important;
+    color: #FFFFFF !important;
+}
+
+.o_field_statusbar .o_arrow_button.o_arrow_button_current[data-value="done"],
+.o_field_statusbar .o_arrow_button.o_arrow_button_current[data-value="purchase"],
+.o_field_statusbar .o_arrow_button.o_arrow_button_current[data-value="sale"],
+.o_field_statusbar .o_arrow_button.o_arrow_button_current[data-value="posted"],
+.o_field_statusbar .o_arrow_button.o_arrow_button_current[data-value="paid"],
+.o_field_statusbar .o_arrow_button.o_arrow_button_current[data-value="approved"],
+.o_field_statusbar .o_arrow_button.o_arrow_button_current[data-value="resolved"] {
+    background-color: var(--nexora-status-success) !important;
+    color: #FFFFFF !important;
+}

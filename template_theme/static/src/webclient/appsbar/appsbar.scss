@@ -1,0 +1,98 @@
+// Template Theme: customize this file for your theme.
+// This file contains styles for the Apps Sidebar (the vertical app switcher).
+
+.tt_apps_sidebar_panel {
+    // Hide scrollbar using the mixin defined in appsbar.mixins.scss
+    @include tt-disable-scrollbar();
+    background-color: $tt-appbar-background;
+    width: var(--tt-sidebar-width, 0);
+    overflow-y: auto;
+
+    .tt_apps_sidebar {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+	    white-space: nowrap;
+
+	    .tt_apps_sidebar_menu {
+	    	padding: 0;
+		    > li > a {
+		        cursor: pointer;
+	            font-size: 13px;
+	            font-weight: 300;
+	            overflow: hidden;
+	            padding: 8px 11px;
+	            text-decoration: none;
+	            color: $tt-appbar-color;
+	            text-overflow: ellipsis;
+
+	            .tt_apps_sidebar_icon {
+				    width: 22px;
+				    height: 22px;
+	    			margin-right: 5px;
+				}
+		    }
+
+            // Active and hover states for sidebar items.
+	        > li.active > a {
+			    background: $tt-appbar-active;
+	        }
+	        > li:hover > a {
+			    background: $tt-appbar-active;
+	        }
+	    }
+	}
+}
+
+// Large sidebar layout (expanded).
+.tt_sidebar_type_large {
+	--tt-sidebar-width: #{$tt-sidebar-large-width};
+}
+
+// Small sidebar layout (collapsed/icons only).
+.tt_sidebar_type_small {
+	--tt-sidebar-width: #{$tt-sidebar-large-width};
+	.tt_apps_sidebar_icon {
+		margin-right: 0 !important;
+	}
+   	.tt_apps_sidebar_logo {
+		display: none;
+	}
+}
+
+// Invisible sidebar state.
+.tt_sidebar_type_invisible {
+	--tt-sidebar-width: 0;
+}
+
+// Hide sidebar in specific Odoo states (e.g., home menu, fullscreen).
+.editor_has_snippets_hide_backend_navbar,
+.o_home_menu_background,
+.o_fullscreen {
+	--tt-sidebar-width: 0;
+}
+
+.editor_has_snippets_hide_backend_navbar .tt_apps_sidebar_panel {
+    transition: width 300ms;
+}
+
+// Responsive behavior: collapse sidebar on medium screens.
+@include media-breakpoint-only(md) {
+	.tt_sidebar_type_large {
+		--tt-sidebar-width: #{$tt-sidebar-small-width};
+		.tt_apps_sidebar_icon {
+			margin-right: 0 !important;
+		}
+	   	.tt_apps_sidebar_logo {
+			display: none;
+		}
+	}
+}
+
+// Hide sidebar on small screens (mobile).
+@include media-breakpoint-down(md) {
+	.tt_sidebar_type_large, .tt_sidebar_type_small {
+		--tt-sidebar-width: 0;
+	}
+}
