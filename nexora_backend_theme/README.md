@@ -3,6 +3,8 @@
 A polished, modern backend theme suite designed specifically for Odoo Community Edition. It delivers a responsive layout, clean UI, collapsible sidebar, modern dialogs, custom login branding, and comprehensive color customization.
 
 ### Features
+- **Kraken-Inspired Workspace**: A focused navy and violet dashboard with one mint accent, responsive KPI strip, and quieter visual hierarchy.
+- **Industry-Neutral Dashboard**: Live cards adapt to the installed Odoo apps instead of assuming a single business vertical.
 - **Responsive Layout**: Fluid experience across desktop, tablet, and mobile screens.
 - **Modern Sidebar & Apps Menu**: Sleek icons, active indicator states, and collapsible sidebar.
 - **Theme Configuration**: Fully customizable colors, topbar, branding, and backgrounds via `Settings > General Settings > Theme Settings`.

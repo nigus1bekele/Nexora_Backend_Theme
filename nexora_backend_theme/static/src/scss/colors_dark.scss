@@ -2,14 +2,14 @@
 // This file defines the color palette for the Dark Theme.
 
 // Core brand and primary colors (Nexora theme, readable on dark chrome).
-$tt_color_brand: #2393D2;
-$tt_color_primary: #2393D2;
+$tt_color_brand: #8477F6;
+$tt_color_primary: #8477F6;
 
 // Status colors aligned with Nexora ink / status.scss.
 $tt_color_success: #198754;
-$tt_color_info: #4DA3E6;
-$tt_color_warning: #F9C511;
-$tt_color_danger: #E0201F;
+$tt_color_info: #8477F6;
+$tt_color_warning: #E4AE45;
+$tt_color_danger: #F06A7E;
 
 // Overriding standard Odoo color variables with theme colors.
 $o-community-color: $tt-color-brand;

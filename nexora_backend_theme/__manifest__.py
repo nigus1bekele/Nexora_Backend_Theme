@@ -7,7 +7,7 @@
         ready-to-use assets, settings, and views to speed up branding
         and customization work.
     ''',
-    'version': '18.0.1.0.1',
+    'version': '18.0.1.0.2',
     'category': 'Themes/Backend',
     'license': 'LGPL-3',
     'author': 'Nexora',

@@ -802,3 +802,233 @@
 .tt_skeleton_body {
     padding: 20px;
 }
+
+// --------------------------------------------------------------------------
+// Nexora workspace — restrained, Kraken-inspired information hierarchy.
+// One violet brand signal, one mint accent, and semantic colours for alerts.
+// --------------------------------------------------------------------------
+.tt_home {
+    --tt-home-content-width: 1360px;
+    background:
+        radial-gradient(circle at 80% -10%, rgba(87, 70, 216, 0.10), transparent 30%),
+        var(--my-theme-bg, #F7F7FC);
+}
+
+.tt_home_hero {
+    overflow: hidden;
+    background-color: #19172E;
+    background-position: center;
+}
+
+.tt_home_hero::before {
+    content: "";
+    position: absolute;
+    width: 36rem;
+    height: 36rem;
+    right: -14rem;
+    top: -25rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 50%;
+    box-shadow: 0 0 0 4rem rgba(255, 255, 255, 0.03), 0 0 0 8rem rgba(255, 255, 255, 0.02);
+}
+
+.tt_home_hero_overlay {
+    background: linear-gradient(
+        90deg,
+        var(--my-theme-hero-overlay-start, #19172E),
+        var(--my-theme-hero-overlay-end, #19172E)
+    );
+    opacity: clamp(0, calc(var(--my-theme-hero-overlay-opacity, 0) / 100), 1);
+}
+
+.tt_home_hero_content {
+    padding: 56px 32px 122px;
+}
+
+.tt_home_kicker {
+    padding: 7px 12px;
+    border: 1px solid rgba(157, 246, 220, 0.32);
+    border-radius: 999px;
+    background: rgba(53, 207, 165, 0.10);
+    color: #9DF6DC;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+}
+
+.tt_home_title {
+    max-width: 720px;
+    margin: 18px 0 10px;
+    font-size: clamp(34px, 4vw, 52px);
+    letter-spacing: -0.045em;
+}
+
+.tt_home_lead {
+    color: rgba(255, 255, 255, 0.76);
+    max-width: 600px;
+    margin: 0;
+}
+
+.tt_home_accent,
+.tt_home_positive {
+    color: #9DF6DC;
+}
+
+.tt_home_stats {
+    gap: 0;
+    margin: -54px auto 38px;
+    padding: 8px;
+    border: 1px solid rgba(231, 229, 240, 0.9);
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.94);
+    box-shadow: 0 20px 50px rgba(25, 23, 46, 0.10);
+    backdrop-filter: blur(16px);
+}
+
+.tt_stat_card,
+.tt_stat_card:first-child {
+    position: relative;
+    min-height: 108px;
+    padding: 16px 20px;
+    border-left: 1px solid var(--my-theme-border, #E7E5F0);
+}
+
+.tt_stat_card:first-child {
+    border-left: none;
+}
+
+.tt_stat_card h3 {
+    margin-top: 12px;
+    font-size: 30px;
+    letter-spacing: -0.04em;
+}
+
+.tt_stat_header,
+.tt_stat_delta {
+    color: var(--my-theme-muted, #706E85);
+}
+
+.tt_stat_icon_blue,
+.tt_stat_icon_green,
+.tt_stat_icon_purple {
+    background: #F0EEFF;
+    color: #5746D8;
+}
+
+.tt_stat_icon_orange {
+    background: #FDECEF;
+    color: #D8485F;
+}
+
+.tt_stat_primary,
+.tt_stat_accent,
+.tt_stat_purple {
+    border-bottom: 2px solid #5746D8;
+}
+
+.tt_stat_warning {
+    border-bottom: 2px solid #D8485F;
+}
+
+.tt_home_section {
+    padding-right: 32px;
+    padding-left: 32px;
+}
+
+.tt_section_header {
+    margin-bottom: 18px;
+}
+
+.tt_section_header h2 {
+    font-size: 20px;
+    letter-spacing: -0.025em;
+}
+
+.tt_home_grid {
+    gap: 16px;
+    grid-template-columns: minmax(270px, 310px) 1fr;
+}
+
+.tt_focus_panel,
+.tt_card {
+    border-color: var(--my-theme-border, #E7E5F0);
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgba(25, 23, 46, 0.05);
+}
+
+.tt_focus_panel {
+    height: 512px;
+    padding: 18px;
+    gap: 12px;
+}
+
+.tt_focus_filter {
+    background-color: #F7F7FC;
+    border-color: #E7E5F0;
+    color: #45435B;
+}
+
+.tt_focus_item:hover,
+.tt_card_info_item:hover {
+    background: #F6F5FB;
+}
+
+.tt_card_grid {
+    gap: 16px;
+}
+
+.tt_card {
+    box-shadow: none;
+}
+
+.tt_card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(87, 70, 216, 0.35);
+    box-shadow: 0 14px 30px rgba(25, 23, 46, 0.10);
+}
+
+.tt_card_header {
+    height: 104px;
+    padding: 18px;
+}
+
+.tt_bg_blue,
+.tt_bg_green,
+.tt_bg_orange,
+.tt_bg_purple {
+    background: linear-gradient(122deg, #201D3F, #5746D8);
+}
+
+.tt_card_body {
+    padding: 18px;
+}
+
+.tt_badge_blue,
+.tt_badge_green,
+.tt_badge_orange,
+.tt_badge_purple {
+    background: #F0EEFF;
+    color: #4636BD;
+}
+
+.tt_badge_gray {
+    background: #F6F5FB;
+    color: #706E85;
+}
+
+@media (max-width: 767.98px) {
+    .tt_home_hero_content,
+    .tt_home_section {
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+
+    .tt_home_stats {
+        margin-right: 20px;
+        margin-left: 20px;
+    }
+
+    .tt_stat_card,
+    .tt_stat_card:first-child {
+        border-left: none;
+    }
+}

@@ -19,8 +19,8 @@
             <link rel="preload" as="image" href="/nexora_backend_theme/static/src/img/hero_nexora_blue_halftone.png" fetchpriority="high"/>
             <!-- Fetch theme parameters from System Parameters (ir.config_parameter) -->
             <t t-set="my_theme_params" t-value="request.env['ir.config_parameter'].sudo()"/>
-            <t t-set="sidebar_icon_color" t-value="(my_theme_params.get_param('nexora_backend_theme.color_sidebar_icon', '#5B6068') or '').strip()"/>
-            <t t-set="sidebar_active_icon_color" t-value="(my_theme_params.get_param('nexora_backend_theme.color_sidebar_active_icon', '#2393D2') or '').strip()"/>
+            <t t-set="sidebar_icon_color" t-value="(my_theme_params.get_param('nexora_backend_theme.color_sidebar_icon', '#706E85') or '').strip()"/>
+            <t t-set="sidebar_active_icon_color" t-value="(my_theme_params.get_param('nexora_backend_theme.color_sidebar_active_icon', '#5746D8') or '').strip()"/>
             <t t-set="is_white_sidebar_icon" t-value="sidebar_icon_color.lower() in ['#fff', '#ffffff']"/>
             <t t-set="is_white_sidebar_active_icon" t-value="sidebar_active_icon_color.lower() in ['#fff', '#ffffff']"/>
             <t t-set="left_bg_image_url" t-value="('/web/image?model=res.company&amp;field=left_bg_image&amp;id=%s' % request.env.company.id) if request.env.company.left_bg_image else ''"/>
@@ -30,28 +30,28 @@
                 .o_web_client {
                     /* These CSS variables are used throughout the theme's SCSS files.
                        They are dynamically populated from the Odoo configuration. */
-                    --my-theme-primary: <t t-esc="my_theme_params.get_param('nexora_backend_theme.color_theme_primary', '#2393D2')"/>;
-                    --my-theme-bg: <t t-esc="my_theme_params.get_param('nexora_backend_theme.color_theme_background', '#F1F2F4')"/>;
-                    --my-theme-text: <t t-esc="my_theme_params.get_param('nexora_backend_theme.color_theme_text', '#111315')"/>;
-                    --my-theme-muted: <t t-esc="my_theme_params.get_param('nexora_backend_theme.color_theme_text_muted', '#5B6068')"/>;
-                    --my-theme-hover: <t t-esc="my_theme_params.get_param('nexora_backend_theme.color_theme_text_hover', '#111315')"/>;
-                    --my-theme-button: <t t-esc="my_theme_params.get_param('nexora_backend_theme.color_theme_button', '#2393D2')"/>;
+                    --my-theme-primary: <t t-esc="my_theme_params.get_param('nexora_backend_theme.color_theme_primary', '#5746D8')"/>;
+                    --my-theme-bg: <t t-esc="my_theme_params.get_param('nexora_backend_theme.color_theme_background', '#F7F7FC')"/>;
+                    --my-theme-text: <t t-esc="my_theme_params.get_param('nexora_backend_theme.color_theme_text', '#19172E')"/>;
+                    --my-theme-muted: <t t-esc="my_theme_params.get_param('nexora_backend_theme.color_theme_text_muted', '#706E85')"/>;
+                    --my-theme-hover: <t t-esc="my_theme_params.get_param('nexora_backend_theme.color_theme_text_hover', '#19172E')"/>;
+                    --my-theme-button: <t t-esc="my_theme_params.get_param('nexora_backend_theme.color_theme_button', '#5746D8')"/>;
                     --my-theme-button-text: <t t-esc="my_theme_params.get_param('nexora_backend_theme.color_theme_button_text', '#FFFFFF')"/>;
-                    --my-theme-appbar-active: <t t-esc="my_theme_params.get_param('nexora_backend_theme.color_appbar_active', '#2393D2')"/>;
-                    --my-theme-hero-overlay-start: <t t-esc="my_theme_params.get_param('nexora_backend_theme.color_hero_overlay_start', '#111315')"/>;
-                    --my-theme-hero-overlay-end: <t t-esc="my_theme_params.get_param('nexora_backend_theme.color_hero_overlay_end', '#111315')"/>;
+                    --my-theme-appbar-active: <t t-esc="my_theme_params.get_param('nexora_backend_theme.color_appbar_active', '#5746D8')"/>;
+                    --my-theme-hero-overlay-start: <t t-esc="my_theme_params.get_param('nexora_backend_theme.color_hero_overlay_start', '#19172E')"/>;
+                    --my-theme-hero-overlay-end: <t t-esc="my_theme_params.get_param('nexora_backend_theme.color_hero_overlay_end', '#19172E')"/>;
                     --my-theme-hero-overlay-opacity: <t t-esc="(my_theme_params.get_param('nexora_backend_theme.hero_overlay_opacity', '0') or '0').strip()"/>;
-                    --my-theme-sidebar-bg: <t t-esc="my_theme_params.get_param('nexora_backend_theme.color_sidebar_background', '#F7F8FA')"/>;
-                    --my-theme-sidebar-text: <t t-esc="my_theme_params.get_param('nexora_backend_theme.color_sidebar_text', '#171A1F')"/>;
-                    --my-theme-sidebar-icon: <t t-esc="sidebar_icon_color or '#5B6068'"/>;
+                    --my-theme-sidebar-bg: <t t-esc="my_theme_params.get_param('nexora_backend_theme.color_sidebar_background', '#FFFFFF')"/>;
+                    --my-theme-sidebar-text: <t t-esc="my_theme_params.get_param('nexora_backend_theme.color_sidebar_text', '#45435B')"/>;
+                    --my-theme-sidebar-icon: <t t-esc="sidebar_icon_color or '#706E85'"/>;
                     --my-theme-sidebar-icon-blend-mode: <t t-esc="'normal' if is_white_sidebar_icon else 'hue'"/>;
                     --my-theme-sidebar-icon-opacity: <t t-esc="'0.85' if is_white_sidebar_icon else '1'"/>;
                     --my-theme-sidebar-icon-saturate: <t t-esc="'0' if is_white_sidebar_icon else '1'"/>;
-                    --my-theme-sidebar-footer-text: <t t-esc="my_theme_params.get_param('nexora_backend_theme.color_sidebar_footer_text', '#5B6068')"/>;
-                    --my-theme-sidebar-footer-active-text: <t t-esc="my_theme_params.get_param('nexora_backend_theme.color_sidebar_footer_active_text', '#2393D2')"/>;
-                    --my-theme-company-name-text: <t t-esc="my_theme_params.get_param('nexora_backend_theme.color_company_name_text', '#171A1F')"/>;
+                    --my-theme-sidebar-footer-text: <t t-esc="my_theme_params.get_param('nexora_backend_theme.color_sidebar_footer_text', '#706E85')"/>;
+                    --my-theme-sidebar-footer-active-text: <t t-esc="my_theme_params.get_param('nexora_backend_theme.color_sidebar_footer_active_text', '#5746D8')"/>;
+                    --my-theme-company-name-text: <t t-esc="my_theme_params.get_param('nexora_backend_theme.color_company_name_text', '#19172E')"/>;
                     --my-theme-left-bg-color: <t t-esc="my_theme_params.get_param('nexora_backend_theme.color_left_background', '#FFFFFF')"/>;
-                    --my-theme-left-text: <t t-esc="my_theme_params.get_param('nexora_backend_theme.color_left_text', '#171A1F')"/>;
+                    --my-theme-left-text: <t t-esc="my_theme_params.get_param('nexora_backend_theme.color_left_text', '#19172E')"/>;
                     <t t-if="left_bg_image_url">
                         --my-theme-left-bg-image: url('<t t-esc="left_bg_image_url"/>');
                     </t>
@@ -64,28 +64,28 @@
                     <t t-else="">
                         --my-theme-hero-bg-image: none;
                     </t>
-                    --my-theme-topbar-bg: #2393D2;
+                    --my-theme-topbar-bg: #19172E;
                     --my-theme-topbar-text: #FFFFFF;
                     --my-theme-surface: #FFFFFF;
-                    --my-theme-border: #DDE2E7;
-                    --my-theme-sidebar-active-indicator: <t t-esc="my_theme_params.get_param('nexora_backend_theme.color_sidebar_active_indicator', '#2393D2')"/>;
-                    --my-theme-sidebar-active-bg: <t t-esc="my_theme_params.get_param('nexora_backend_theme.color_sidebar_active_background', '#E1F3FC')"/>;
-                    --my-theme-sidebar-active-text: <t t-esc="my_theme_params.get_param('nexora_backend_theme.color_sidebar_active_text', '#155F87')"/>;
-                    --my-theme-sidebar-active-icon: <t t-esc="sidebar_active_icon_color or '#2393D2'"/>;
+                    --my-theme-border: #E7E5F0;
+                    --my-theme-sidebar-active-indicator: <t t-esc="my_theme_params.get_param('nexora_backend_theme.color_sidebar_active_indicator', '#5746D8')"/>;
+                    --my-theme-sidebar-active-bg: <t t-esc="my_theme_params.get_param('nexora_backend_theme.color_sidebar_active_background', '#F0EEFF')"/>;
+                    --my-theme-sidebar-active-text: <t t-esc="my_theme_params.get_param('nexora_backend_theme.color_sidebar_active_text', '#4636BD')"/>;
+                    --my-theme-sidebar-active-icon: <t t-esc="sidebar_active_icon_color or '#5746D8'"/>;
                     --my-theme-sidebar-active-icon-blend-mode: <t t-esc="'normal' if is_white_sidebar_active_icon else 'hue'"/>;
                     --my-theme-sidebar-active-icon-opacity: <t t-esc="'0.85' if is_white_sidebar_active_icon else '1'"/>;
                     --my-theme-sidebar-active-icon-saturate: <t t-esc="'0' if is_white_sidebar_active_icon else '1'"/>;
-                    --my-theme-sidebar-hover-bg: <t t-esc="my_theme_params.get_param('nexora_backend_theme.color_sidebar_hover_background', '#EEF1F4')"/>;
-                    --my-theme-sidebar-hover-text: <t t-esc="my_theme_params.get_param('nexora_backend_theme.color_sidebar_hover_text', '#171A1F')"/>;
-                    --my-theme-badge-bg: <t t-esc="my_theme_params.get_param('nexora_backend_theme.color_badge_background', '#2393D2')"/>;
+                    --my-theme-sidebar-hover-bg: <t t-esc="my_theme_params.get_param('nexora_backend_theme.color_sidebar_hover_background', '#F6F5FB')"/>;
+                    --my-theme-sidebar-hover-text: <t t-esc="my_theme_params.get_param('nexora_backend_theme.color_sidebar_hover_text', '#19172E')"/>;
+                    --my-theme-badge-bg: <t t-esc="my_theme_params.get_param('nexora_backend_theme.color_badge_background', '#5746D8')"/>;
                     --my-theme-badge-text: <t t-esc="my_theme_params.get_param('nexora_backend_theme.color_badge_text', '#FFFFFF')"/>;
-                    --my-theme-login-left-panel-bg: <t t-esc="my_theme_params.get_param('nexora_backend_theme.color_login_left_panel_bg', '#111315')"/>;
+                    --my-theme-login-left-panel-bg: <t t-esc="my_theme_params.get_param('nexora_backend_theme.color_login_left_panel_bg', '#19172E')"/>;
                     --my-theme-login-right-panel-bg: <t t-esc="my_theme_params.get_param('nexora_backend_theme.color_login_right_panel_bg', '#FFFFFF')"/>;
-                    --my-theme-login-company-text: <t t-esc="my_theme_params.get_param('nexora_backend_theme.color_login_company_text', '#2393D2')"/>;
-                    --my-theme-login-motto-text: <t t-esc="my_theme_params.get_param('nexora_backend_theme.color_login_motto_text', '#B8BDC5')"/>;
-                    --my-theme-login-other-button: <t t-esc="my_theme_params.get_param('nexora_backend_theme.color_login_other_button', '#F1F2F4')"/>;
-                    --my-theme-login-other-button-text: <t t-esc="my_theme_params.get_param('nexora_backend_theme.color_login_other_button_text', '#111315')"/>;
-                    --my-theme-home-kicker-color: <t t-esc="my_theme_params.get_param('nexora_backend_theme.color_home_kicker', '#F9C511')"/>;
+                    --my-theme-login-company-text: <t t-esc="my_theme_params.get_param('nexora_backend_theme.color_login_company_text', '#5746D8')"/>;
+                    --my-theme-login-motto-text: <t t-esc="my_theme_params.get_param('nexora_backend_theme.color_login_motto_text', '#B9B7CC')"/>;
+                    --my-theme-login-other-button: <t t-esc="my_theme_params.get_param('nexora_backend_theme.color_login_other_button', '#F7F7FC')"/>;
+                    --my-theme-login-other-button-text: <t t-esc="my_theme_params.get_param('nexora_backend_theme.color_login_other_button_text', '#19172E')"/>;
+                    --my-theme-home-kicker-color: <t t-esc="my_theme_params.get_param('nexora_backend_theme.color_home_kicker', '#9DF6DC')"/>;
                     --my-theme-home-title-color: <t t-esc="my_theme_params.get_param('nexora_backend_theme.color_home_title', '#FFFFFF')"/>;
                     --my-theme-home-lead-color: <t t-esc="my_theme_params.get_param('nexora_backend_theme.color_home_lead', '#E5E7EB')"/>;
                     --my-theme-home-kicker-size: <t t-esc="(my_theme_params.get_param('nexora_backend_theme.home_kicker_size', '20') or '20').strip()"/>px;
@@ -94,14 +94,14 @@
                     --my-theme-home-kicker-weight: <t t-esc="(my_theme_params.get_param('nexora_backend_theme.home_kicker_weight', '700') or '700').strip()"/>;
                     --my-theme-home-title-weight: <t t-esc="(my_theme_params.get_param('nexora_backend_theme.home_title_weight', '800') or '800').strip()"/>;
                     --my-theme-home-lead-weight: <t t-esc="(my_theme_params.get_param('nexora_backend_theme.home_lead_weight', '500') or '500').strip()"/>;
-                    --my-theme-ink-black: #111315;
-                    --my-theme-ink-blue: #2393D2;
-                    --my-theme-ink-magenta: #D91279;
-                    --my-theme-ink-yellow: #F9C511;
-                    --my-theme-ink-red: #E0201F;
-                    --my-theme-accent: #F9C511;
-                    --my-theme-brand-start: #111315;
-                    --my-theme-brand-end: #2393D2;
+                    --my-theme-ink-black: #19172E;
+                    --my-theme-ink-blue: #5746D8;
+                    --my-theme-ink-magenta: #5746D8;
+                    --my-theme-ink-yellow: #35CFA5;
+                    --my-theme-ink-red: #D8485F;
+                    --my-theme-accent: #35CFA5;
+                    --my-theme-brand-start: #19172E;
+                    --my-theme-brand-end: #5746D8;
                 }
             </style>
             <!-- Load Google Fonts -->

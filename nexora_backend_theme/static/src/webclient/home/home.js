@@ -57,10 +57,11 @@ class TemplateThemeHome extends Component {
     }
 
     getHeroBackgroundUrl() {
+        const krakenWash = "linear-gradient(112deg, rgba(25, 23, 46, 0.98) 0%, rgba(54, 43, 133, 0.94) 56%, rgba(87, 70, 216, 0.82) 100%)";
         if (this.companyService.currentCompany?.has_custom_hero_section_bg) {
-            return `url(/web/image?model=res.company&field=hero_section_bg&id=${this.companyService.currentCompany.id})`;
+            return `${krakenWash}, url(/web/image?model=res.company&field=hero_section_bg&id=${this.companyService.currentCompany.id})`;
         }
-        return 'url(/nexora_backend_theme/static/src/img/hero_nexora_blue_halftone.png)';
+        return `${krakenWash}, url(/nexora_backend_theme/static/src/img/hero_nexora_blue_halftone.png)`;
     }
 
     async loadHome() {
@@ -75,13 +76,13 @@ class TemplateThemeHome extends Component {
         const metricDefs = [
             {
                 key: "production",
-                label: "Print Jobs In Progress",
+                label: "Manufacturing In Progress",
                 model: "mrp.production",
                 domain: [["state", "in", ["confirmed", "progress", "to_close"]]],
                 iconClass: "fa fa-industry",
                 accentClass: "tt_stat_primary",
                 iconClassName: "tt_stat_icon_blue",
-                subtext: "Production floor queue",
+                subtext: "Work orders in motion",
                 keywords: ["manufacturing", "mrp", "production"],
                 action: "mrp.mrp_production_action",
                 app_xmlid: "mrp.menu_mrp_root",
@@ -94,7 +95,7 @@ class TemplateThemeHome extends Component {
                 iconClass: "fa fa-cubes",
                 accentClass: "tt_stat_purple",
                 iconClassName: "tt_stat_icon_purple",
-                subtext: "Paper, ink and packaging",
+                subtext: "Transfers awaiting action",
                 keywords: ["inventory", "stock", "warehouse"],
                 action: "stock.action_picking_tree_all",
                 app_xmlid: "stock.menu_stock_root",
@@ -191,14 +192,14 @@ class TemplateThemeHome extends Component {
             {
                 key: "production",
                 title: "Production",
-                description: "Monitor print jobs, work orders and the shop-floor queue.",
+                description: "Monitor work orders, operations, and the production queue.",
                 model: "mrp.production",
                 domain: [["state", "in", ["confirmed", "progress", "to_close"]]],
-                metricLabel: "Print Jobs Active",
+                metricLabel: "Orders Active",
                 headerClass: "tt_bg_blue",
                 iconClass: "fa fa-industry",
                 watermarkClass: "fa fa-cogs",
-                badge: "Shop Floor",
+                badge: "Operations",
                 badgeClass: "tt_badge_blue",
                 keywords: ["manufacturing", "mrp", "production"],
                 action: "mrp.mrp_production_action",
@@ -286,7 +287,7 @@ class TemplateThemeHome extends Component {
             {
                 key: "purchases",
                 title: "Purchases",
-                description: "Paper, ink, plates and supplier orders.",
+                description: "Review requests for quotation and supplier orders.",
                 model: "purchase.order",
                 domain: [["state", "in", ["draft", "sent", "to approve"]]],
                 metricLabel: "RFQs",
@@ -305,7 +306,7 @@ class TemplateThemeHome extends Component {
             {
                 key: "inventory",
                 title: "Inventory",
-                description: "Paper, ink, plates, packaging and stock health.",
+                description: "Follow receipts, deliveries, and stock operations.",
                 model: "stock.picking",
                 domain: [["state", "in", ["confirmed", "assigned", "waiting"]]],
                 metricLabel: "To Process",

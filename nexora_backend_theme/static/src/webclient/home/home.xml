@@ -10,9 +10,7 @@
         <div class="tt_home_hero_content">
           <!-- <span class="tt_home_kicker">Overview</spototto or 'Overview'an> -->
           <span class="tt_home_kicker" t-esc="companyService.currentCompany.name or 'Overview'"/>
-          <h1 class="tt_home_title">
-            <span>Business Operations Dashboard</span>
-          </h1>
+          <h1 class="tt_home_title"><span>Your business, in focus.</span></h1>
           <p class="tt_home_lead">
             <t t-if="state.summary.hasSales">
               Welcome back, <t t-esc="state.userName"/>. You have
@@ -73,8 +71,8 @@
       <section class="tt_home_section">
         <div class="tt_section_header">
           <div>
-            <h2>Production Desk</h2>
-            <p>Live snapshots from the printing plant and supporting teams</p>
+            <h2>Workspace</h2>
+            <p>Live signals from the apps your team uses every day</p>
           </div>
         </div>
 

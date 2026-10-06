@@ -2,14 +2,14 @@
 // This file defines the color palette for the Light Theme.
 
 // Core brand and primary colors (Nexora theme).
-$tt_color_brand: #2393D2;
-$tt_color_primary: #2393D2;
+$tt_color_brand: #5746D8;
+$tt_color_primary: #5746D8;
 
 // Status colors aligned with Nexora ink / status.scss.
 $tt_color_success: #198754;
-$tt_color_info: #2393D2;
-$tt_color_warning: #F9C511;
-$tt_color_danger: #E0201F;
+$tt_color_info: #5746D8;
+$tt_color_warning: #D89B22;
+$tt_color_danger: #D8485F;
 
 // Overriding standard Odoo color variables with theme colors.
 $o-community-color: $tt-color-brand;

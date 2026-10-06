@@ -177,7 +177,7 @@
                                 <field name="theme_color_sidebar_footer_text" class="d-block w-25 p-0 m-0" widget="color"/>
                             </div>
                             <div class="w-50 row">
-                                 <label for="theme_color_topbar_background" string="Top Bar Background (Cyan)" class="d-block w-75 py-2"/>
+                                 <label for="theme_color_topbar_background" string="Top Bar Background" class="d-block w-75 py-2"/>
                                  <field name="theme_color_topbar_background" class="d-block w-25 p-0 m-0" widget="color" readonly="1"/>
                             </div>
                             <div class="w-50 row">

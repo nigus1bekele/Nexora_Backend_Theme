@@ -1340,6 +1340,72 @@
     }
 }
 
+// --------------------------------------------------------------------------
+// Nexora chrome — quiet dark top bar with a single violet interaction colour.
+// --------------------------------------------------------------------------
+.o_web_client {
+    --my-theme-topbar-height: 72px;
+    --my-theme-sidebar-width: 248px;
+}
+
+.o_navbar.my_theme_navbar,
+.my_theme_topbar {
+    background: #19172E;
+}
+
+.my_theme_topbar {
+    padding-right: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.my_theme_left {
+    background-color: var(--my-theme-left-bg-color, #FFFFFF);
+    border-right: 1px solid var(--my-theme-border, #E7E5F0);
+}
+
+.my_theme_left::after {
+    height: 2px;
+    background: #5746D8;
+}
+
+.my_theme_brand_icon {
+    min-width: 58px;
+    min-height: 58px;
+    width: 58px;
+    height: 58px;
+}
+
+.my_theme_brand_icon img {
+    width: 52px;
+    height: 52px;
+}
+
+.my_theme_search_inner {
+    height: 42px;
+    max-width: 560px;
+    border-color: rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.10);
+    color: rgba(255, 255, 255, 0.72);
+}
+
+.my_theme_search_inner .fa-search,
+.my_theme_search_input,
+.my_theme_search_input::placeholder {
+    color: rgba(255, 255, 255, 0.68);
+}
+
+.my_theme_systray .o_systray_item > button:hover,
+.my_theme_systray .o_systray_item > a:hover,
+.my_theme_systray .o_systray_item .dropdown-toggle:hover {
+    background: rgba(255, 255, 255, 0.10);
+    border-color: rgba(255, 255, 255, 0.10);
+}
+
+.my_theme_navbar .o_menu_systray .badge {
+    background-color: #5746D8;
+}
+
 // Additional breakpoint for screens < 1140px: Reduce search bar width to prevent cropping
 @media (max-width: 1139.98px) {
     .my_theme_search_inner {
